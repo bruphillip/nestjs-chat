@@ -1,6 +1,7 @@
 import { Connection } from 'mongoose';
-import { MONGOSE_CONNECTION } from './databases/mongoose';
-import { ChatSchema } from '../schemas/chat.schema';
+
+import { MONGOSE_CONNECTION } from '~/databases/mongoose';
+import { ChatSchema } from '~/app/schemas/chat.schema';
 
 export const CHAT_PROVIDER = 'CHAT_PROVIDER';
 

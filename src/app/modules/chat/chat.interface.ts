@@ -1,6 +1,6 @@
 import { Document } from 'mongoose';
 
-export interface Chat extends Document {
+export interface IChat extends Document {
   readonly author: string;
   readonly message: string;
 }
