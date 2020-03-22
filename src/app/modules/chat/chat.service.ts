@@ -2,15 +2,13 @@ import { Injectable, Inject } from '@nestjs/common';
 import { Model } from 'mongoose';
 
 import { CHAT_PROVIDER } from '~/providers/chat.provider';
-import ChatWebSocket from '~/websocket/chat.websocket.service';
 
 import { IChat } from './chat.interface';
 
 @Injectable()
 export class ChatService {
   constructor(
-    @Inject(CHAT_PROVIDER) private readonly chatModel: Model<IChat>,
-    private readonly chatSocket: ChatWebSocket
+    @Inject(CHAT_PROVIDER) private readonly chatModel: Model<IChat>
   ) {}
 
   async createMessage(chatMessage: IChat): Promise<IChat> {
@@ -20,8 +18,6 @@ export class ChatService {
   }
 
   async findAll(): Promise<IChat[]> {
-    this.chatSocket.server.emit('chat', { message: 'emitted by server' });
-
     return this.chatModel.find();
   }
 }

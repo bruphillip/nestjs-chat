@@ -13,7 +13,8 @@ export class ChatController {
   }
 
   @Post()
-  store(@Body() message: IChat): Promise<IChat> {
+  store(@Body() message: IChat) {
+    console.log(message);
     return this.chatProvider.createMessage(message);
   }
 }
